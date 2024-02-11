@@ -24,3 +24,46 @@ var Size;
 })(Size || (Size = {})); // Declaring an enum named 'Size' with three values
 var sizeName = Size[2]; // Declaring a string variable named 'sizeName' and assigning it the value of the second enum value
 console.log(sizeName); // Output: Medium
+// Any
+var whatever = 'aaa'; // Declaring a variable named 'whatever' and assigning it the value 'aaa'
+whatever = 5; // Reassigning the 'whatever' variable to the value '5'
+// Void
+var sing = function () {
+    console.log('lalala');
+};
+// Never
+var error = function () {
+    throw Error('oops');
+};
+var fightRobotArmy = function (robots) {
+    console.log('FIGHT!');
+};
+var fightRobotArmy2 = function (robots) {
+    console.log('FIGHT!');
+};
+var dog = {}; // Declaring a variable named 'dog' and casting it to the type 'CatArmy'
+dog.count; // Output: undefined
+// Function
+var fightRobotArmy3 = function (robots) {
+    console.log('FIGHT!');
+};
+var fightRobotArmy4 = function (robots) {
+    console.log('FIGHT!');
+};
+// Classes
+var Animal = /** @class */ (function () {
+    function Animal(sound) {
+        this.sing = 'lalala'; // Declaring a private string variable named 'sing' and assigning it the value 'lalala'
+        this.sing = sound;
+    }
+    Animal.prototype.greet = function () {
+        return "Hello, ".concat(this.sing);
+    };
+    return Animal;
+}());
+var lion = new Animal('RAAAWR'); // Declaring a new instance of the 'Animal' class and passing in the string 'RAAAWR'
+console.log(lion.greet()); // Output: Hello, RAAAWR
+// Union
+var confused = 'hello'; // Declaring a variable named 'confused' that can be either a string or a number
+confused = 5;
+var person = { name: 'John', age: 30 }; // Declaring a variable named 'person' and assigning it an object with a 'name' and an 'age' property

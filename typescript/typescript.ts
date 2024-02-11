@@ -30,3 +30,75 @@ let sizeName: string = Size[2];  // Declaring a string variable named 'sizeName'
 
 console.log(sizeName);  // Output: Medium
 
+// Any
+let whatever: any = 'aaa';  // Declaring a variable named 'whatever' and assigning it the value 'aaa'
+whatever = 5;  // Reassigning the 'whatever' variable to the value '5'
+
+// Void
+let sing = (): void => {  // Declaring a function named 'sing' that doesn't return anything
+    console.log('lalala');
+}
+
+// Never
+let error = (): never => {  // Declaring a function named 'error' that never returns anything
+    throw Error('oops');
+}
+
+// Interface
+interface RobotArmy {
+    count: number,
+    type: string,
+    magic?: string  // Optional property
+}
+
+let fightRobotArmy = (robots: RobotArmy) => {  // Declaring a function named 'fightRobotArmy' that takes in an object of type 'RobotArmy'
+    console.log('FIGHT!');
+}
+
+let fightRobotArmy2 = (robots: { count: number, type: string, magic?: string }) => {  // Declaring a function named 'fightRobotArmy2' that takes in an object with three properties
+    console.log('FIGHT!');
+}
+
+// Type Assertion
+interface CatArmy {
+    count: number,
+    type: string,
+    magic: string
+}
+
+let dog = {} as CatArmy  // Declaring a variable named 'dog' and casting it to the type 'CatArmy'
+dog.count  // Output: undefined
+
+// Function
+let fightRobotArmy3 = (robots: RobotArmy): void => {  // Declaring a function named 'fightRobotArmy3' that takes in an object of type 'RobotArmy' and doesn't return anything
+    console.log('FIGHT!');
+}
+
+let fightRobotArmy4 = (robots: { count: number, type: string, magic?: string }): void => {  // Declaring a function named 'fightRobotArmy4' that takes in an object with three properties and doesn't return anything
+    console.log('FIGHT!');
+}
+
+// Classes
+class Animal {
+    private sing: string = 'lalala';  // Declaring a private string variable named 'sing' and assigning it the value 'lalala'
+    constructor(sound: string) {  // Declaring a constructor that takes in a string and assigns it to the 'sing' variable
+        this.sing = sound;
+    }
+
+    greet(): string {  // Declaring a method named 'greet' that returns a string
+        return `Hello, ${this.sing}`;
+    }
+}
+
+let lion = new Animal('RAAAWR');  // Declaring a new instance of the 'Animal' class and passing in the string 'RAAAWR'
+console.log(lion.greet());  // Output: Hello, RAAAWR
+
+// Union
+let confused: string | number = 'hello';  // Declaring a variable named 'confused' that can be either a string or a number
+confused = 5;
+
+// Intersection
+type HasName = { name: string };
+type HasAge = { age: number };
+type Person = HasName & HasAge;  // Declaring a type named 'Person' that is a combination of the 'HasName' and 'HasAge' types
+let person: Person = { name: 'John', age: 30 };  // Declaring a variable named 'person' and assigning it an object with a 'name' and an 'age' property
