@@ -28,7 +28,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.json(friends);
 });
-
+app.get("/friends", (req, res) => {
+  res.json(friends);
+});
 app.post("/messages", (req, res) => {
   res.send('<ul>"Updating Messages"</ul>');
 });
@@ -40,7 +42,7 @@ app.listen(PORT, () => {
 app.post("/friends", (req, res) => {
   if (!req.body.name) {
     return res.status(400).json({
-      error: "Name is required",
+      error: "Missing friend name",
     });
   }
   const newFriend = {
