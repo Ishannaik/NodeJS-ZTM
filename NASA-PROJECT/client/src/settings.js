@@ -14,32 +14,32 @@ const sounds = {
   players: {
     click: {
       sound: { src: ["/sound/click.mp3"] },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
     typing: {
       sound: { src: ["/sound/typing.mp3"] },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
     deploy: {
       sound: { src: ["/sound/deploy.mp3"] },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
     success: {
       sound: {
         src: ["/sound/success.mp3"],
         volume: 0.2,
       },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
     abort: {
       sound: { src: ["/sound/abort.mp3"] },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
     warning: {
       sound: { src: ["/sound/warning.mp3"] },
-      settings: { oneAtATime: true }
+      settings: { oneAtATime: true },
     },
-  }
+  },
 };
 
 const theme = {
@@ -50,15 +50,11 @@ const theme = {
   responsive: {
     small: 600,
     medium: 800,
-    large: 1200
+    large: 1200,
   },
   typography: {
     headerFontFamily: '"Titillium Web", "sans-serif"',
   },
 };
 
-export {
-  resources,
-  sounds,
-  theme,
-};
+export { resources, sounds, theme };
