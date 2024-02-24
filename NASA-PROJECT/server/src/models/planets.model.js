@@ -45,7 +45,11 @@ function loadPlanetsData() {
   });
 }
 
+function getAllPlanets() {
+  return habitablePlanets; // Corrected variable name
+}
+
 module.exports = {
-  planets: habitablePlanets, // Corrected variable name
+  getAllPlanets, // Corrected variable name
   loadPlanetsData,
 };
