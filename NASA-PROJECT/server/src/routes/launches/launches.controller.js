@@ -47,6 +47,7 @@ function httpAbortLaunch(req, res) {
 }
 
 module.exports = {
+  httpAbortLaunch,
   httpGetAllLaunches,
   httpAddNewLaunch,
 };
