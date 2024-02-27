@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "nodemon src/server.js",
     "start": "cross-env PORT=5000 node ./src/server.js",
-    "test": "jest"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
