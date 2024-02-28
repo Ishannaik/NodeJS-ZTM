@@ -1,5 +1,4 @@
 const launches = new Map();
-
 let latestFlightNumber = 100;
 
 const launch = {
@@ -16,15 +15,18 @@ const launch = {
 launches.set(launch.flightNumber, launch);
 
 function existsLaunchWithId(launchId) {
+  console.log("Checking if launch with ID", launchId, "exists");
   return launches.has(launchId);
 }
 
 function getAllLaunches() {
+  console.log("Retrieving all launches");
   return Array.from(launches.values());
 }
 
 function addNewLaunch(launch) {
   latestFlightNumber++;
+  console.log("Adding new launch:", launch);
   launches.set(
     launch.flightNumber,
     Object.assign(launch, { success: true, upcoming: true })
@@ -32,6 +34,7 @@ function addNewLaunch(launch) {
 }
 
 function abortLaunchById(launchId) {
+  console.log("Aborting launch with ID", launchId);
   const aborted = launches.get(launchId);
   aborted.upcoming = false;
   aborted.success = false;

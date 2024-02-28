@@ -18,7 +18,6 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
   const submitLaunch = useCallback(
     async (e) => {
       e.preventDefault();
-      // setPendingLaunch(true);
       const data = new FormData(e.target);
       const launchDate = new Date(data.get("launch-day"));
       const mission = data.get("mission-name");
