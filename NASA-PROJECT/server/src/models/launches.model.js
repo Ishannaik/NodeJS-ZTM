@@ -26,11 +26,13 @@ function getAllLaunches() {
 
 function addNewLaunch(launch) {
   latestFlightNumber++;
-  console.log("Adding new launch:", launch);
-  launches.set(
-    launch.flightNumber,
-    Object.assign(launch, { success: true, upcoming: true })
-  );
+  launches.set(latestFlightNumber, {
+    ...launch,
+    flightNumber: latestFlightNumber,
+    success: true,
+    upcoming: true,
+  });
+  console.log("Adding new launch with flightNumber:", latestFlightNumber);
 }
 
 function abortLaunchById(launchId) {
