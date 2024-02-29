@@ -8,7 +8,7 @@
     "start": "cross-env PORT=8000 node ./src/server.js",
     "test": "jest",
     "test-watch": "jest --watch",
-    "cluster": "cross-env NODE_ENV=production pm2 start src/server.js -i max"
+    "cluster": "cross-env NODE_ENV=production pm2 start src/server.js -i 4"
   },
   "keywords": [],
   "author": "",
