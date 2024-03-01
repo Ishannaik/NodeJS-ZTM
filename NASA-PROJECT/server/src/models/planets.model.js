@@ -51,7 +51,12 @@ function loadPlanetsData() {
 }
 
 function getAllPlanets() {
-  return habitablePlanets; // Corrected variable name
+  return planets.find(
+    {
+      keplerName: "Kepler-62 f",
+    },
+    "-keplerName anotherField"
+  );
 }
 
 module.exports = {
