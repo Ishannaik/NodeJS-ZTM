@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from "react";
+
 import { httpGetLaunches, httpSubmitLaunch, httpAbortLaunch } from "./requests";
 
 function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
-  const [launches, setLaunches] = useState([]);
+  const [launches, saveLaunches] = useState([]);
   const [isPendingLaunch, setPendingLaunch] = useState(false);
 
   const getLaunches = useCallback(async () => {
     const fetchedLaunches = await httpGetLaunches();
-    console.log("Fetched launches:", fetchedLaunches);
-    setLaunches(fetchedLaunches);
+    saveLaunches(fetchedLaunches);
   }, []);
 
   useEffect(() => {
@@ -20,23 +20,27 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
       e.preventDefault();
       setPendingLaunch(true);
       const data = new FormData(e.target);
-      const launch = {
-        launchDate: new Date(data.get("launch-day")),
-        mission: data.get("mission-name"),
-        rocket: data.get("rocket-name"),
-        target: data.get("planets-selector"),
-      };
+      const launchDate = new Date(data.get("launch-day"));
+      const mission = data.get("mission-name");
+      const rocket = data.get("rocket-name");
+      const target = data.get("planets-selector");
+      const response = await httpSubmitLaunch({
+        launchDate,
+        mission,
+        rocket,
+        target,
+      });
 
-      const response = await httpSubmitLaunch(launch);
-      console.log("Submit Launch Response:", response);
-
-      if (response.success) {
-        onSuccessSound();
-        getLaunches(); // Refresh launches to include the new one
+      const success = response.ok;
+      if (success) {
+        getLaunches();
+        setTimeout(() => {
+          setPendingLaunch(false);
+          onSuccessSound();
+        }, 800);
       } else {
         onFailureSound();
       }
-      setPendingLaunch(false);
     },
     [getLaunches, onSuccessSound, onFailureSound]
   );
@@ -44,11 +48,12 @@ function useLaunches(onSuccessSound, onAbortSound, onFailureSound) {
   const abortLaunch = useCallback(
     async (id) => {
       const response = await httpAbortLaunch(id);
-      console.log(`Abort Launch Response for ID ${id}:`, response);
 
-      if (response.ok) {
+      // TODO: Set success based on response.
+      const success = response.ok;
+      if (success) {
+        getLaunches();
         onAbortSound();
-        getLaunches(); // Refresh launches after aborting
       } else {
         onFailureSound();
       }
