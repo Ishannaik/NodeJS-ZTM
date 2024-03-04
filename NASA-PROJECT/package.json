@@ -19,6 +19,9 @@
   "keywords": [],
   "author": "Ishan",
   "license": "ISC",
+  "jest": {
+    "testEnvironment": "node"
+  },
   "dependencies": {
     "client": "^0.0.1",
     "mongoose": "^8.2.0",
