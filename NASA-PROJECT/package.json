@@ -23,6 +23,7 @@
     "testEnvironment": "node"
   },
   "dependencies": {
+    "axios": "^1.6.7",
     "client": "^0.0.1",
     "mongoose": "^8.2.0",
     "morgan": "^1.10.0"
