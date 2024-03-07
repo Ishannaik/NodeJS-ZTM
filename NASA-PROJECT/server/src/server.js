@@ -16,6 +16,7 @@ async function startServer() {
 
   server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
+    console.log(`The url is http://localhost:${PORT}...`);
   });
 }
 

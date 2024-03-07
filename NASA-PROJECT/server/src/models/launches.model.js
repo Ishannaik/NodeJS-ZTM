@@ -101,7 +101,7 @@ async function getLatestFlightNumber() {
 }
 
 async function getAllLaunches() {
-  return await launchesDb.find({}, { _id: 0, __v: 0 });
+  return await launchesDb.find({}, { _id: 0, __v: 0 }).skip(20).limit(50);
 }
 
 async function saveLaunch(launch) {
