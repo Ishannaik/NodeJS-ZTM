@@ -12,7 +12,7 @@ const server = http.createServer(app);
 async function startServer() {
   await mongoConnect();
   await loadPlanetsData();
-  await loadLaunchData();
+  await loadLaunchData(); //Delete the collection in MongoDB Atlas to clean up launch data
 
   server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}...`);
