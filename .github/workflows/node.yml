@@ -19,10 +19,5 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Navigate to NASA-PROJECT folder
-        run: cd NASA-PROJECT
-      - name: Print current directory
-        run: pwd
-
       - run: npm install
       - run: npm run build --prefix client
