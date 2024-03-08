@@ -38,7 +38,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 ### Module System
 <p align="center">
   <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=es6,codepen,npm" />
+    <img src="https://skillicons.dev/icons?i=codepen,npm" />
   </a>
 </p>
 
