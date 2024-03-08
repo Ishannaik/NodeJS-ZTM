@@ -1,17 +1,23 @@
 name: NASA Project CI
+
 on:
   push:
-    branches: [main]
+    paths:
+      - "NASA-PROJECT/**" # Trigger the workflow only when changes are made inside the nasa-example folder
   pull_request:
-    branches: [main]
+    paths:
+      - "NASA-PROJECT/**" # Trigger the workflow only when changes are made inside the nasa-example folder
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js Version 20 #test
+
+      - name: Use Node.js Version 20
         uses: actions/setup-node@v3
         with:
           node-version: "20"
+
       - run: npm install
-      - run: npm run build --prefix client
+      - run: npm run build --prefix NASA-PROJECT/client # Adjust the prefix path to point to the nasa-example folder
