@@ -4,13 +4,9 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "NASA-PROJECT/**"
   pull_request:
     branches:
       - main
-    paths:
-      - "NASA-PROJECT/**"
 
 jobs:
   build:
