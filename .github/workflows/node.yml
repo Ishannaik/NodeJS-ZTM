@@ -10,14 +10,23 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    env:
+      CI: true
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        node-version: [14.x, 15.x, 16.x, 17.x, 18.x, 19.x 20.x, 21.x]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use Node.js Version 20
+      - name: Use Node.js Version ${{matrix.node-version}}
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: ${{matrix.node-version}}
 
       - name: Navigate to NASA-PROJECT folder
         run: cd NASA-PROJECT
@@ -26,3 +35,4 @@ jobs:
 
       - run: npm install
       - run: npm run build --prefix client
+      - run: npm test
