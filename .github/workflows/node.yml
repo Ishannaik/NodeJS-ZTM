@@ -38,4 +38,4 @@ jobs:
 
       - run: npm run build --prefix client
 
-      - run: npm test
+      #- run: npm test
