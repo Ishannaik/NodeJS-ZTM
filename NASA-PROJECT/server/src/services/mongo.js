@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 
 require("dotenv").config();
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = process.env.MONGO_URL; //Rotated the MongoDB Api password to prevent unauthorized access
 
 mongoose.connection.once("open", () => {
   console.log("MongoDb connection ready");
