@@ -17,7 +17,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-        node-version: [14.x, 16.x, 20.x]
+        node-version: [16.x, 20.x]
         mongodb-version: ["6.0"]
     runs-on: ${{ matrix.os }}
 
@@ -38,4 +38,4 @@ jobs:
 
       - run: npm run build --prefix client
 
-      #- run: npm test
+      - run: npm test
