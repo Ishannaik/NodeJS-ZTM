@@ -1,7 +1,28 @@
 const express = require("express");
+const { graphqlHTTP } = require("express-graphql");
+const { buildSchema } = require("graphql");
+
+const schema = buildSchema(`
+type Query {
+    description: String
+    prince: Float
+}
+`);
+const root = {
+  description: "Red Shoes",
+  price: 123.45,
+};
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
+app.listen(3000, () => {
+  console.log("Running GraphQL Server...");
 });
+
+app.use(
+  "/graphql",
+  graphqlHTTP({
+    schema: schema,
+    rootValue: root,
+  })
+);
