@@ -5,7 +5,7 @@ const { buildSchema } = require("graphql");
 const schema = buildSchema(`
 type Query {
     description: String
-    prince: Float
+    price: Float
 }
 `);
 const root = {
@@ -24,5 +24,6 @@ app.use(
   graphqlHTTP({
     schema: schema,
     rootValue: root,
+    graphiql: true,
   })
 );
