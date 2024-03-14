@@ -1,14 +1,14 @@
 const products = [
   {
     id: "redshoe",
-    description: "A red shoe",
-    price: 10.0,
+    description: "Red Shoe",
+    price: 42.12,
     reviews: [],
   },
   {
     id: "bluejean",
     description: "Blue Jeans",
-    price: 55.0,
+    price: 55.55,
     reviews: [],
   },
 ];
@@ -17,13 +17,13 @@ function getAllProducts() {
   return products;
 }
 
-function getProductByPrice(min, max) {
+function getProductsByPrice(min, max) {
   return products.filter((product) => {
     return product.price >= min && product.price <= max;
   });
 }
 
-function getProductByID(id) {
+function getProductById(id) {
   return products.find((product) => {
     return product.id === id;
   });
@@ -32,8 +32,8 @@ function getProductByID(id) {
 function addNewProduct(id, description, price) {
   const newProduct = {
     id,
-    description,
     price,
+    description,
     reviews: [],
   };
 
@@ -41,9 +41,25 @@ function addNewProduct(id, description, price) {
   return newProduct;
 }
 
+function addNewProductReview(id, rating, comment) {
+  const matchedProduct = getProductById(id);
+
+  if (matchedProduct) {
+    const newProductReview = {
+      rating,
+      comment,
+    };
+
+    matchedProduct.reviews.push(newProductReview);
+
+    return newProductReview;
+  }
+}
+
 module.exports = {
   getAllProducts,
-  getProductByPrice,
-  getProductByID,
+  getProductsByPrice,
+  getProductById,
   addNewProduct,
+  addNewProductReview,
 };
