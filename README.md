@@ -5,6 +5,7 @@
     <img src="https://skillicons.dev/icons?i=nodejs&perline=1" />
   </a>
 </p>
+<img src =https://github.com/Ishannaik/NodeJS-ZTM/assets/11766476/7c566620-3285-43aa-9706-996e4278df8b />
 
 ## Course Stats 📊
 <p align="center">
