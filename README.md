@@ -5,8 +5,10 @@
     <img src="https://skillicons.dev/icons?i=nodejs&perline=1" />
   </a>
 </p>
+<img src =https://github.com/Ishannaik/NodeJS-ZTM/assets/11766476/7c566620-3285-43aa-9706-996e4278df8b />
 
 ## Course Stats 📊
+
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0-brightgreen" alt="Version" />
   <img src="https://img.shields.io/github/stars/Ishannaik/NodeJS-ZTM?style=social" alt="Stars" />
@@ -25,6 +27,7 @@
 Welcome to my journey through the "Complete Node.js Developer in 2024" course by Zero to Mastery. Here, I share my progress, insights, and projects, showcasing my evolution from a beginner to a proficient Node.js developer.
 
 ### Foundations
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=js,html,css,wasm" />
@@ -36,6 +39,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Understand design patterns like the Observer Design Pattern and Event Emitters.
 
 ### Module System
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=codepen,npm" />
@@ -47,6 +51,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Understand package management with NPM, including creating packages, managing dependencies, and handling vulnerabilities.
 
 ### File I/O: Planets Project
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=stream,githubactions,mongodb" />
@@ -57,6 +62,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Manipulate data with streams, parse CSV files, and find habitable planets.
 
 ### Web Servers
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=express" />
@@ -65,7 +71,9 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 
 - Explore web servers, HTTP responses, requests, and APIs.
 - Dive into Express.js, comparing it with Next.js and Koa.
+
 ### ExpressJS
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=express,postman" />
@@ -77,6 +85,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Explore RESTful APIs, CRUD operations, and serving static files.
 
 ### NodeJS NASA Project
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=react,nodejs,mongodb,githubactions" />
@@ -88,6 +97,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Automate tasks with GitHub Actions and enhance performance.
 
 ### Testing APIs
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=jest" />
@@ -98,6 +108,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Test Node.js APIs using Jest and Supertest.
 
 ### Improving Node Performance
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=nodejs" />
@@ -109,6 +120,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Improve performance of applications with stateless APIs and Node Worker Threads.
 
 ### Databases
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=mongodb" />
@@ -120,6 +132,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Work with Mongoose, MongoDB Atlas, and horizontally scale databases.
 
 ### Working With REST APIs
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=postman" />
@@ -136,6 +149,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Implement authentication with Auth0.
 
 ### Deployment and CI/CD
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,aws,docker" />
@@ -147,6 +161,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Deploy to production with Docker to Amazon EC2, manage containers, and use PM2.
 
 ### Node Production and the Cloud (AWS)
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=aws,docker" />
@@ -157,6 +172,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Understand serverless vs. containers, manage Docker containers and images, and use SSH for production deployment.
 
 ### GraphQL
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=graphql" />
@@ -166,6 +182,7 @@ Welcome to my journey through the "Complete Node.js Developer in 2024" course by
 - Compare GraphQL with REST, and build a GraphQL API.
 
 ### Sockets (WebSockets, Socket.io)
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=socketio,websocket" />
