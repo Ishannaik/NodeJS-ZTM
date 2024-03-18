@@ -1,4 +1,5 @@
-const http = require("http");
+const fs = require("fs");
+const https = require("http");
 const path = require("path");
 const express = require("express");
 
@@ -14,8 +15,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-https
-  .createServer(
+https.createServer(
     {
       key: fs.readFileSync("key.pem"),
       cert: fs.readFileSync("cert.pem"),
