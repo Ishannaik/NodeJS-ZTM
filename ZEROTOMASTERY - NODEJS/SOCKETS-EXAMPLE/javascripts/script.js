@@ -25,7 +25,6 @@ let ballDirection = 1;
 let speedY = 2;
 let speedX = 0;
 
-
 // Score for Both Players
 let score = [0, 0];
 
@@ -41,13 +40,13 @@ function createCanvas() {
 // Wait for Opponents
 function renderIntro() {
   // Canvas Background
-  context.fillStyle = 'black';
+  context.fillStyle = "black";
   context.fillRect(0, 0, width, height);
 
   // Intro Text
-  context.fillStyle = 'white';
+  context.fillStyle = "white";
   context.font = "32px Courier New";
-  context.fillText("Waiting for opponent...", 20, (canvas.height / 2) - 30);
+  context.fillText("Waiting for opponent...", 20, canvas.height / 2 - 30);
 }
 
 // Render Everything on Canvas
@@ -147,14 +146,11 @@ function ballBoundaries() {
       trajectoryX[1] = ballX - (paddleX[1] + paddleDiff);
       speedX = trajectoryX[1] * 0.3;
     } else {
-
       ballReset();
       score[0]++;
     }
   }
 }
-
-
 
 // Called Every Frame
 function animate() {
@@ -168,7 +164,8 @@ function animate() {
 // Start Game, Reset Everything
 function startGame() {
   createCanvas();
-  // renderIntro();
+  renderIntro();
+  socket.emit("Ready", {});
 
   paddleIndex = 0;
   window.requestAnimationFrame(animate);
@@ -188,3 +185,7 @@ function startGame() {
 
 // On Load
 startGame();
+
+socket.on("connect", () => {
+  console.log("Connected as", socket.id);
+});
