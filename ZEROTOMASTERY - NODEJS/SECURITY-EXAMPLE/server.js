@@ -29,11 +29,14 @@ passport.use(
 
 //save the user to the session
 passport.serializeUser((user, done) => {
-  done(null, user);
+  done(null, user.id);
 });
 // read the user from the session
 passport.deserializeUser((obj, done) => {
-  done(null, obj);
+  User.findById(id).then((user) => {
+    done(null, user);
+  });
+  //   done(null, obj);
 });
 const app = express();
 
