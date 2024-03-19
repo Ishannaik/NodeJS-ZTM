@@ -165,7 +165,7 @@ function animate() {
 function startGame() {
   createCanvas();
   renderIntro();
-  socket.emit("Ready", {});
+  socket.emit("Ready");
 
   paddleIndex = 0;
   window.requestAnimationFrame(animate);
