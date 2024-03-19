@@ -1,6 +1,7 @@
-// Canvas Related 
-const canvas = document.createElement('canvas');
-const context = canvas.getContext('2d');
+// Canvas Related
+const canvas = document.createElement("canvas");
+const context = canvas.getContext("2d");
+const socket = io("http://localhost:3000");
 let paddleIndex = 0;
 
 let width = 500;
@@ -10,8 +11,8 @@ let height = 700;
 let paddleHeight = 10;
 let paddleWidth = 50;
 let paddleDiff = 25;
-let paddleX = [ 225, 225 ];
-let trajectoryX = [ 0, 0 ];
+let paddleX = [225, 225];
+let trajectoryX = [0, 0];
 let playerMoved = false;
 
 // Ball
@@ -23,14 +24,14 @@ let ballDirection = 1;
 // Speed
 let speedY = 2;
 let speedX = 0;
-let computerSpeed = 4;
+
 
 // Score for Both Players
-let score = [ 0, 0 ];
+let score = [0, 0];
 
 // Create Canvas Element
 function createCanvas() {
-  canvas.id = 'canvas';
+  canvas.id = "canvas";
   canvas.width = width;
   canvas.height = height;
   document.body.appendChild(canvas);
@@ -38,25 +39,25 @@ function createCanvas() {
 }
 
 // Wait for Opponents
-// function renderIntro() {
-//   // Canvas Background
-//   context.fillStyle = 'black';
-//   context.fillRect(0, 0, width, height);
-
-//   // Intro Text
-//   context.fillStyle = 'white';
-//   context.font = "32px Courier New";
-//   context.fillText("Waiting for opponent...", 20, (canvas.height / 2) - 30);
-// }
-
-// Render Everything on Canvas
-function renderCanvas() {
+function renderIntro() {
   // Canvas Background
   context.fillStyle = 'black';
   context.fillRect(0, 0, width, height);
 
-  // Paddle Color
+  // Intro Text
   context.fillStyle = 'white';
+  context.font = "32px Courier New";
+  context.fillText("Waiting for opponent...", 20, (canvas.height / 2) - 30);
+}
+
+// Render Everything on Canvas
+function renderCanvas() {
+  // Canvas Background
+  context.fillStyle = "black";
+  context.fillRect(0, 0, width, height);
+
+  // Paddle Color
+  context.fillStyle = "white";
 
   // Bottom Paddle
   context.fillRect(paddleX[0], height - 20, paddleWidth, paddleHeight);
@@ -69,19 +70,19 @@ function renderCanvas() {
   context.setLineDash([4]);
   context.moveTo(0, 350);
   context.lineTo(500, 350);
-  context.strokeStyle = 'grey';
+  context.strokeStyle = "grey";
   context.stroke();
 
   // Ball
   context.beginPath();
   context.arc(ballX, ballY, ballRadius, 2 * Math.PI, false);
-  context.fillStyle = 'white';
+  context.fillStyle = "white";
   context.fill();
 
   // Score
   context.font = "32px Courier New";
-  context.fillText(score[0], 20, (canvas.height / 2) + 50);
-  context.fillText(score[1], 20, (canvas.height / 2) - 30);
+  context.fillText(score[0], 20, canvas.height / 2 + 50);
+  context.fillText(score[1], 20, canvas.height / 2 - 30);
 }
 
 // Reset Ball to Center
@@ -146,31 +147,14 @@ function ballBoundaries() {
       trajectoryX[1] = ballX - (paddleX[1] + paddleDiff);
       speedX = trajectoryX[1] * 0.3;
     } else {
-      // Reset Ball, Increase Computer Difficulty, add to Player Score
-      if (computerSpeed < 6) {
-        computerSpeed += 0.5;
-      }
+
       ballReset();
       score[0]++;
     }
   }
 }
 
-// Computer Movement
-function computerAI() {
-  if (playerMoved) {
-    if (paddleX[1] + paddleDiff < ballX) {
-      paddleX[1] += computerSpeed;
-    } else {
-      paddleX[1] -= computerSpeed;
-    }
-    if (paddleX[1] < 0) {
-      paddleX[1] = 0;
-    } else if (paddleX[1] > (width - paddleWidth)) {
-      paddleX[1] = width - paddleWidth;
-    }
-  }
-}
+
 
 // Called Every Frame
 function animate() {
@@ -185,23 +169,22 @@ function animate() {
 function startGame() {
   createCanvas();
   // renderIntro();
-  
+
   paddleIndex = 0;
   window.requestAnimationFrame(animate);
-  canvas.addEventListener('mousemove', (e) => {
+  canvas.addEventListener("mousemove", (e) => {
     playerMoved = true;
     paddleX[paddleIndex] = e.offsetX;
     if (paddleX[paddleIndex] < 0) {
       paddleX[paddleIndex] = 0;
     }
-    if (paddleX[paddleIndex] > (width - paddleWidth)) {
+    if (paddleX[paddleIndex] > width - paddleWidth) {
       paddleX[paddleIndex] = width - paddleWidth;
     }
     // Hide Cursor
-    canvas.style.cursor = 'none';
+    canvas.style.cursor = "none";
   });
 }
 
 // On Load
 startGame();
-
