@@ -15,7 +15,6 @@ const config = {
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "/auth/google/callback",
-  
 };
 
 passport.use(
@@ -29,13 +28,13 @@ passport.use(
 );
 
 //save the user to the session
-passport.serializeUser((user, done) {
+passport.serializeUser((user, done) => {
   done(null, user);
 });
 // read the user from the session
-passport.deserializeUser(obj, done ) =>{
+passport.deserializeUser((obj, done) => {
   done(null, obj);
-}
+});
 const app = express();
 
 app.use(helmet());
