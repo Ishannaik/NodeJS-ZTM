@@ -3,9 +3,11 @@ const https = require("http");
 const path = require("path");
 const express = require("express");
 const helmet = require("helmet");
-require("dotenv").config();
 const passport = require("passport");
 const { Strategy } = require("passport-google-oauth20").Strategy;
+const cookieSession = require("cookie-session");
+
+require("dotenv").config();
 
 const port = process.env.PORT || 3000;
 
@@ -13,6 +15,7 @@ const config = {
   clientID: process.env.CLIENT_ID,
   clientSecret: process.env.CLIENT_SECRET,
   callbackURL: "/auth/google/callback",
+  
 };
 
 passport.use(
@@ -25,13 +28,32 @@ passport.use(
   })
 );
 
+//save the user to the session
+passport.serializeUser((user, done) {
+  done(null, user);
+});
+// read the user from the session
+passport.deserializeUser(obj, done ) =>{
+  done(null, obj);
+}
 const app = express();
 
 app.use(helmet());
+
+app.use(
+  cookieSession({
+    name: "session",
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+    keys: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
+    COOKIE_KEY_1: process.env.COOKIE_KEY_1,
+    COOKIE_KEY_2: process.env.COOKIE_KEY_2,
+  })
+);
 app.use(passport.initialize());
+app.use(passport.session());
 
 function checkLoggedIn(req, res, next) {
-  const isLoggedIn = true; //TODO
+  const isLoggedIn = true;
   if (isLoggedIn) {
     return res.status(401).json({ error: "You are not logged in" });
   }
@@ -50,7 +72,7 @@ app.get(
   passport.authenticate("google", {
     failureRedirect: "/failure",
     successRedirect: "/",
-    session: false,
+    session: true,
   }),
   (req, res) => {
     return res.send("You are logged in with Google");
@@ -62,7 +84,7 @@ app.get("/failure", (req, res) => {
 app.get("auth/logout", (req, res) => {});
 
 app.get("/secret", checkLoggedIn, (req, res) => {
-  return res.send("This is a secret");
+  return res.send("This is a secret 42");
 });
 
 app.get("/", (req, res) => {
