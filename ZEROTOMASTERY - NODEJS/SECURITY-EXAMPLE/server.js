@@ -84,7 +84,10 @@ app.get(
 app.get("/failure", (req, res) => {
   return res.send("Failed to log in");
 });
-app.get("auth/logout", (req, res) => {});
+app.get("auth/logout", (req, res) => {
+  req.logout();
+  return res.redirect('/');
+});
 
 app.get("/secret", checkLoggedIn, (req, res) => {
   return res.send("This is a secret 42");
